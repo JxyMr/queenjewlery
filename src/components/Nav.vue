@@ -33,19 +33,24 @@
 					transform rotate(-45deg)
 					position absolute
 					top 16px
-					right 22px	
-					
-			>a
-				padding 0 30px
-				font-size 14px
-				line-height @height
+					right 22px
+			.list
+				padding-left 14px
+				float left
+				a
+					padding 0 30px
+					font-size 14px
+					line-height @height				
+				
 					
 </style>
 <template>
 	<div class="nav">
 		<div class="w1180">
 			<div class="all">全部商品</div>
-			<router-link v-for="item of list" :to="item.href">{{item.name}}</router-link>	
+			<div class="list">
+				<router-link v-for="item of list" :to="item.href">{{item.name}}</router-link>
+			</div>			
 		</div>
 	</div>
 </template>

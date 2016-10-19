@@ -61,7 +61,7 @@
 			line-height 48px
 			font-size 26px
 			font-weight 600
-			color #bcbcbc
+			color #bcbcbc		
 	.ranking		
 		.list
 			li
@@ -170,7 +170,119 @@
 					.love,.bought
 						font-size 14px
 					.love
-						margin-bottom 10px								 
+						margin-bottom 10px
+	.represent
+		.main
+			width 100%
+			overflow hidden
+			.infor
+				width 580px
+				height 200px
+				&:nth-of-type(1),&:nth-of-type(3)					
+					margin-right 20px
+				&:nth-of-type(3),&:nth-of-type(4)
+					margin-top 20px	
+				.img
+					width 380px
+					height 200px
+					img
+						width 100%
+						height 100%
+				.fixbox
+					position relative
+					width 180px
+					padding-left 20px
+					.name
+						font-size 24px
+						margin-top 20px
+					.btn
+						position absolute
+						right 0
+						color white
+						width 98px
+						height 28px
+						border 1px solid #797979
+						font-size 13px
+						text-align center
+						line-height 28px
+						&.my-represent
+							background-color #515151
+							top 75px
+						&.buy
+							background-color #797979
+							top 115px
+					.icon
+						margin-top 50px
+						margin-bottom 16px	
+					p
+						font-size 13px
+						line-height 24px
+ 	.myfashion
+		margin-bottom 20px
+		.fashion
+			width 33.333%
+			.fashion-tit
+				font-size 20px
+				font-weight 400
+				margin-bottom 26px
+				margin-top 10px
+			.main
+				a
+					display inline-block
+					vertical-align middle
+					&.img
+						width 180px
+						height 162px
+						img
+							width 100%
+							height 100%
+							
+					&.content
+						width 176px
+						font-size 14px
+						line-height 24px
+						margin-left 16px
+			.infor
+				margin-top 30px
+				font-size 14px
+				line-height 16px
+				a
+					margin-right 14px
+					&.follow,&.likes,&.messages
+						color #868686
+					&.follow:before
+						content ""
+						background url("../assets/icon3.png") no-repeat
+						width 18px
+						height 16px
+						background-size 100%
+						display inline-block
+						vertical-align middle
+						margin-right 4px
+						margin-top -2px
+					&.likes:before
+						content ""
+						background url("../assets/icon4.png") no-repeat
+						width 18px
+						height 16px
+						background-size 100%
+						display inline-block
+						vertical-align middle
+						margin-right 4px
+						margin-top -2px	
+					&.messages:before
+						content ""
+						background url("../assets/icon5.png") no-repeat
+						width 18px
+						height 16px
+						background-size 100%
+						display inline-block
+						vertical-align middle
+						margin-right 4px
+						margin-top -2px	
+									
+						
+						 														 
 
 </style>
 <template>
@@ -220,18 +332,18 @@
 					<p class="top"></p>
 					<div class="detail">
 						<div class="head-img" :style="{'background-image':'url('+item.imgUrl+')'}"></div>
-						<p class="name">代言人:<span></span></p>
+						<p class="name">代言人:<span>{{item.name}}</span></p>
 						<div class="motto">
-							<p>22</p>
-							<p>22</p>
+							<p>{{item.motto[0]}}</p>
+							<p>{{item.motto[1]}}</p>
 						</div>
 						<div class="cli">
 							<a href="#"><img src="../assets/icon3.png" alt="1"></a>
 							<a href="#"><img src="../assets/icon4.png" alt="2"></a>
 							<a href="#" class="buy">立即购买</a>	
 						</div>
-						<p class="love">人喜欢</p>
-						<p class="bought">人已经购买</p>
+						<p class="love">{{item.love}}人喜欢</p>
+						<p class="bought">{{item.buy}}人已经购买</p>
 					</div>
 				</div>
 			</div>
@@ -241,16 +353,45 @@
 				<h2>为我代言</h2>
 				<div class="add">+</div>
 			</div>
+			<div class="main">
+				<div class="infor fl" v-for="item of respresent">
+					<div class="img fl"><img :src="item.imgUrl" alt=""></div>
+					<div class="fixbox fl">
+						<p class="name">{{item.name}}</p>
+						<p class="icon"><a href="#"><img src="../assets/icon3.png" alt="1"></a>
+							<a href="#"><img src="../assets/icon4.png" alt="2"></a></p>
+						<p>{{item.likes}}人喜欢</p>
+						<p>{{item.bought}}人已经购买</p>
+						<a href="#" class="btn my-represent">我要代言</a>
+						<a href="#" class="btn buy">立刻购买</a>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="myfashion w1180">
 			<div class="tit">
 				<h2>我的时尚</h2>
 				<div class="add">+</div>
 			</div>
+			<div class="fashion fl" v-for="item of fashion">
+				<p class="fashion-tit">{{item.tit}}</p>
+				<div class="main">
+					<a href="#" class="img"><img :src="item.imgUrl" alt=""></a><a href="#" class="content">{{item.content}}</a>
+				</div>
+				<div class="infor">
+					<a href="#" class="name">{{item.name}}</a>
+					<a class="time">{{item.time}}</a>
+					<a href="#" class="follow">{{item.follow}}</a>
+					<a href="#" class="likes">{{item.likes}}</a>
+					<a href="#" class="messages">{{item.messages}}</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 <script>
+	import $ from "jquery"
+	console.log($);
 	export default{
 		data(){
 			return{
@@ -348,6 +489,64 @@
 						buy:10000,
 						motto:["拒绝平庸，追求卓越","凸显个性，绝不将就"],
 					}
+				],
+				fashion:[
+					{
+						imgUrl:require("../assets/fashion01.jpg"),
+						tit:"2015春夏流行色：魅惑黑色",
+						content:"黑色之所以经久不衰,小编猜应该有不少原因,不过肯定逃不脱穿腻了夏日缤纷色彩的心理,不妨从一周中抽出一天来,穿上黑寡妇斯嘉丽最爱的AllBlack造型,这种帅气简单,也能让别人眼前一亮。",
+						time:"2015-06-02",
+						follow:"999",
+						likes:"99",
+						messages:"99",
+						name:"Queen"
+					},
+					{
+						imgUrl:require("../assets/fashion03.jpg"),
+						tit:"2015春夏流行色：魅惑黑色",
+						content:"黑色之所以经久不衰,小编猜应该有不少原因,不过肯定逃不脱穿腻了夏日缤纷色彩的心理,不妨从一周中抽出一天来,穿上黑寡妇斯嘉丽最爱的AllBlack造型,这种帅气简单,也能让别人眼前一亮。",
+						time:"2015-06-02",
+						follow:"999",
+						likes:"99",
+						messages:"99",
+						name:"Queen"
+					},
+					{
+						imgUrl:require("../assets/fashion02.jpg"),
+						tit:"2015春夏流行色：魅惑黑色",
+						content:"黑色之所以经久不衰,小编猜应该有不少原因,不过肯定逃不脱穿腻了夏日缤纷色彩的心理,不妨从一周中抽出一天来,穿上黑寡妇斯嘉丽最爱的AllBlack造型,这种帅气简单,也能让别人眼前一亮。",
+						time:"2015-06-02",
+						follow:"999",
+						likes:"99",
+						messages:"99",
+						name:"Queen"
+					}
+				],
+				respresent:[
+					{
+						imgUrl:require("../assets/respresent01.jpg"),
+						name:"QueenJewlery",
+						likes:9999,
+						bought:10000
+					},
+					{
+						imgUrl:require("../assets/respresent01.jpg"),
+						name:"QueenJewlery",
+						likes:9999,
+						bought:10000
+					},
+					{
+						imgUrl:require("../assets/respresent01.jpg"),
+						name:"QueenJewlery",
+						likes:9999,
+						bought:10000
+					},
+					{
+						imgUrl:require("../assets/respresent01.jpg"),
+						name:"QueenJewlery",
+						likes:9999,
+						bought:10000
+					},
 				]
 			}
 		}

@@ -1,7 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Apply from "./pages/Apply";
-import Home from "./pages/Home"; 
+import Home from "./pages/Home";
+import BrandNew from "./pages/BrandNew"; 
+import Brand from "./pages/Brand";
+import Activity from "./pages/Activity";
+import Me from "./pages/Me";  
 import App from "./App";
 Vue.use(Router);
 new Vue({
@@ -16,6 +20,22 @@ new Vue({
 			{
 				path : "/home",
 				component : Home
+			},
+			{
+				path:"/brandNew",
+				component : BrandNew
+			},
+			{
+				path:"/brand",
+				component : Brand
+			},
+			{
+				path:"/activity",
+				component : Activity
+			},
+			{
+				path:"/me",
+				component : Me
 			}
 		]
 	}),

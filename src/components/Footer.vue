@@ -8,7 +8,7 @@
 		overflow hidden
 		ul
 			float left
-			padding 55px 0 45px
+			padding 45px 0
 			width 200px
 			li
 				&:nth-child(1)
@@ -16,7 +16,45 @@
 					font-size 18px
 					font-weight bold
 				a
-					line-height 2
+					line-height 24px
+					font-size 14px
+		.right
+			float left
+			padding 45px 0 45px
+			&.weixin
+				margin-left 84px
+			.tit
+				font-size 18px
+				font-weight bold
+				position relative
+				&.hot:before
+					content ""
+					background url("../assets/icon6.png") no-repeat
+					width 18px
+					height 18px
+					left -20px
+					top 2px
+					position absolute
+					
+					
+			.phone
+				font-size 24px
+				font-weight 700
+				line-height 24px
+				margin-top 36px
+			.time
+				font-size 14px
+				line-height 24px
+			.webcat
+				margin-top 10px
+				font-size 13px
+			.code-img
+				margin-top 16px
+				width 90px
+				height 90px
+				img
+					width 100%
+					height 100%							
 	.bottom1
 		height 40px
 		background-color rgb(228, 228, 228)
@@ -39,6 +77,17 @@
 					<a :href="anchor.href">{{anchor.name}}</a>
 				</li>
 			</ul>
+			<div class="right">
+				<div class="tit hot">客服热线</div>
+				<p class="phone">12345678912</p>
+				<p class="time">(周一至周日 , 9:00-21:00)</p>
+			</div>
+			<div class="right weixin">
+				<div class="tit">女王微信</div>
+				<p class="code-img"><img src="../assets/weixin.png" alt=""></p>
+				<p class="webcat">女王官方微信</p>
+			</div>
+
 		</div>
 		<div class="bottom1">
 			<div class="w1180">
@@ -83,11 +132,11 @@
 						name : "支付方式",
 						anchor : [
 							{
-								name : "新手指南",
+								name : "货到付款",
 								href : "/rookie"
 							},
 							{
-								name : "常见问题",
+								name : "余额支付",
 								href : "/qa"
 							},
 							{
@@ -95,7 +144,7 @@
 								href : "/help"
 							},
 							{
-								name : "用户协议",
+								name : "现金券支付",
 								href : "/agreement"
 							}
 						]
@@ -104,19 +153,19 @@
 						name : "配送方式",
 						anchor : [
 							{
-								name : "新手指南",
+								name : "包邮政策",
 								href : "/rookie"
 							},
 							{
-								name : "常见问题",
+								name : "配送说明",
 								href : "/qa"
 							},
 							{
-								name : "帮助中心",
+								name : "运费说明",
 								href : "/help"
 							},
 							{
-								name : "用户协议",
+								name : "验货签收",
 								href : "/agreement"
 							}
 						]
@@ -125,19 +174,19 @@
 						name : "售后服务",
 						anchor : [
 							{
-								name : "新手指南",
+								name : "品牌承诺",
 								href : "/rookie"
 							},
 							{
-								name : "常见问题",
+								name : "售后咨询",
 								href : "/qa"
 							},
 							{
-								name : "帮助中心",
+								name : "退货政策",
 								href : "/help"
 							},
 							{
-								name : "用户协议",
+								name : "退货办理",
 								href : "/agreement"
 							}
 						]
@@ -169,6 +218,7 @@
 						href : "/business"
 					}
 				]
+
 			};
 		}
 	}

@@ -33,9 +33,8 @@
 			text-align center
 			line-height @height
 			z-index 1
-			&.normal
-				background-color white
-				border-color rgb(188, 188, 188)
+			background-color white
+			border-color rgb(188, 188, 188)
 			&.done
 				background-color black
 				border-color @background-color
@@ -63,8 +62,9 @@
 	form
 		margin-top 30px
 		padding 26px
-		width 872px
+		width 846px
 		border 1px solid rgb(242, 242, 242)
+		float left
 		label
 			font-size 14px
 			&:not([for="sltType"])
@@ -74,6 +74,8 @@
 		>div
 			&:not(:first-of-type)
 				margin-top 30px
+			&.upload
+				margin-top 20px	
 		.ipt-txt
 			margin-top 18px
 			height 28px
@@ -92,23 +94,46 @@
 			margin-top 18px
 			width 653px
 			height 183px
-		.image
-			width 100px
-			height @width
-			background-color rgb(242, 242, 242)
-			background-repeat no-repeat
-			background-position 50% 50%
-			background-size contain
-			border 1px solid rgb(228, 228, 228)
-			border-radius 2px
-			[type="file"]
-				width @height
-				height @width
-				opacity 0
-				&::-webkit-file-upload-button
-					display none
-		p
-			line-height 2
+		.upload
+			overflow hidden	
+			.image
+				width 98px
+				height 28px
+				background-color rgb(242, 242, 242)
+				
+				float left
+				border 1px solid rgb(228, 228, 228)
+				border-radius 2px
+				text-align center
+				line-height 28px
+				position relative
+				[type="file"]
+					width @width
+					height @height
+					opacity 0
+					/*&::-webkit-file-upload-button
+						display none*/
+					position absolute
+					top 0
+					left 0		
+			p
+				float left
+				margin-left 10px
+				font-size 14px
+				overflow hidden
+				line-height 25px
+				position relative
+				.issue
+					font-weight 700
+					margin-left 30px
+			.img-show
+				width 100px
+				height 100px
+				background-repeat no-repeat
+				background-position 50% 50%
+				background-size contain
+				background-color rgb(242, 242, 242)			
+					
 		.next
 			margin-top 18px
 			width 100px
@@ -118,13 +143,45 @@
 			border-radius 2px
 			color white
 			cursor pointer
+	.info
+		padding 26px 26px 80px
+		margin-top 30px
+		width 228px
+		background-color #f2f2f2
+		font-size 14px
+		.info-com
+			border-bottom 1px dashed #d7d7d7
+			.info-tit
+				margin-bottom 24px
+				font-size 16px
+			p
+				line-height 20px
+					
+		.safe
+			padding-bottom:44px
+			margin-top 14px
+		.contact
+			padding-bottom 54px
+			padding-top 40px
+			.phone
+				font-weight 400
+				font-size 20px
+				line-height 30px
+				margin 15px 0
+		.webcode
+			margin-top 40px
+			width 180px
+			height @width
+			img
+				width 100%		
+							
 </style>
 <template>
 	<div class="apply w1180">
-		<div class="meter step2">
+		<div class="meter step1">
 			<div class="circle done">1</div>
-			<div class="circle done">2</div>
-			<div class="circle normal">3</div>
+			<div class="circle">2</div>
+			<div class="circle">3</div>
 			<div class="progress"></div>
 		</div>
 		<form>
@@ -149,18 +206,35 @@
 				<label for="">说说您的具体要求：</label>
 				<textarea v-model="detail" @input="handleValidate('detail', $event)"></textarea>
 			</div>
-			<div>
-				<div class="image" :style="{'background-image':'url('+path+')'}">
-					<input type="file" @change="handleChange" />
+			<div class="upload">
+				<div class="image">
+					添加附件
+					<input type="file" @change="handleChange"/>
 				</div>
 				<p>
-					<span v-text="message">最多可添加5个附件，每个大小不超过2M</span>
-					<a>上传遇到问题？</a>
+					
+					<span v-text="message"></span>
+					<a class="issue">上传遇到问题？</a>
 				</p>
+				<p class="img-show" :style="{'background-image':'url('+path+')'}"></p>
 			</div>
 			<input class="next" type="button" value="下一步>" @click="handleNext" />
 		</form>
-		<div class="info"></div>
+		<div class="info fr">
+			<div class="info-com safe">
+				<p class="info-tit">保障交易安全</p>
+				<p>个人资料绝不泄露</p>
+				<p>交易问题一律赔偿</p>
+				<p>不收取任何费用</p>
+			</div>
+			<div class="info-com contact">
+				<p class="info-tit">联系客服帮您发需求</p>
+				<p>客服电话</p>
+				<p class="phone">12345678912</p>
+				<p>（周一至周日，9:00-21:00）</p>
+			</div>
+			<div class="webcode"><img src="../assets/weixin.png" alt=""></div>
+		</div>
 	</div>
 </template>
 <script>
@@ -187,7 +261,7 @@
 				code : "",
 				detail : "",
 				path : "",
-				message : ""
+				message : "最多可添加5个附件，每个大小不超过2M"
 			};
 		},
 		methods : {
@@ -200,7 +274,7 @@
 				FILES.length && /jpe?g|png|gif|bmp/.test(FILES[0].type) && fileReader.readAsDataURL(FILES[0]);
 			},
 			handleNext(){
-				console.log(this.type, this.req, this.tel, this.code, this.detail);
+				console.log();
 			},
 			handleValidate(type, e){
 				const value = this[type];
