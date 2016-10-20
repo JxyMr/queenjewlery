@@ -106,7 +106,7 @@
 			<div class="w1180">
 				<div class="tel fl">热线电话：12345678912</div>
 				<div class="login fr">
-					<a v-for="item of nav" :href="item.href">{{item.text}}</a>
+					<router-link v-for="item of nav" :to="item.href">{{item.text}}</router-link>
 				</div>
 			</div>
 		</div>
@@ -140,19 +140,19 @@
 				nav:[
 					{
 						text:"登录",
-						href:"#"
+						href:"/login"
 					},
 					{
 						text:"注册",
-						href:"#"
+						href:"/desige"
 					},
 					{
 						text:"品牌商",
-						href:"#"
+						href:"/"
 					},
 					{
 						text:"女王帮助",
-						href:"#"
+						href:"/"
 					},
 
 				],
@@ -173,4 +173,5 @@
 			}
 		}
 	}
+	var login = document.get
 </script>

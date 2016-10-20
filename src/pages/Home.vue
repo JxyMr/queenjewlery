@@ -1,7 +1,7 @@
 <style scoped lang="stylus">
 	.home
 		overflow hidden
-	.banner
+	/*.banner
 		height 350px
 		overflow hidden
 		position relative
@@ -29,15 +29,19 @@
 			img
 				width 100%
 				height 100%
+		*/
+	.bannerwrap
+		position relative		
 		.banner-tit
 			position absolute
 			top 124px
 			left 500px
+			z-index 2
 			p
 				color white
 				font-size 36px
 				font-weight 700
-				line-height 48px
+				line-height 48px	
 	.ranking,.new,.represent,.myfashion
 		overflow hidden
 		margin-top 20px
@@ -151,6 +155,9 @@
 						margin-bottom 20px
 						a
 							vertical-align middle
+							img
+								width 22px
+								height 22px
 							&:not(".buy")
 								margin-right 10px
 							&.buy
@@ -213,7 +220,10 @@
 							top 115px
 					.icon
 						margin-top 50px
-						margin-bottom 16px	
+						margin-bottom 16px
+						img
+							width 22px
+							height 22px	
 					p
 						font-size 13px
 						line-height 24px
@@ -250,59 +260,48 @@
 					margin-right 14px
 					&.follow,&.likes,&.messages
 						color #868686
+						&:before
+							content ""
+							width 18px
+							height 16px
+							display inline-block
+							vertical-align middle
+							margin-right 4px
+							margin-top -2px
 					&.follow:before
-						content ""
 						background url("../assets/icon3.png") no-repeat
-						width 18px
-						height 16px
 						background-size 100%
-						display inline-block
-						vertical-align middle
-						margin-right 4px
-						margin-top -2px
-					&.likes:before
-						content ""
-						background url("../assets/icon4.png") no-repeat
-						width 18px
-						height 16px
-						background-size 100%
-						display inline-block
-						vertical-align middle
-						margin-right 4px
-						margin-top -2px	
-					&.messages:before
-						content ""
-						background url("../assets/icon5.png") no-repeat
-						width 18px
-						height 16px
-						background-size 100%
-						display inline-block
-						vertical-align middle
-						margin-right 4px
-						margin-top -2px	
-									
 						
-						 														 
-
+					&.likes:before
+						background url("../assets/icon4.png") no-repeat
+						background-size 100%
+							
+					&.messages:before
+						background url("../assets/icon5.png") no-repeat
+						background-size 100%						 														 
 </style>
 <template>
 	<div class="home">
-		<div class="banner">
+		<!-- <div class="banner">
 			<ul>
 				<li v-for="item of banner">
 					<img :src="item.imgUrl" alt="" />
 				</li>
 			</ul>
-			<div class="banner-tit">
-				<p>我是女王，我做主！</p>
-				<p>我的品牌我代言！</p>
-			</div>	
+				
 			<div class="tab">
 				<a href="#" class="current"></a>
 				<a href="#"></a>
 				<a href="#"></a>
 				<a href="#"></a>
 			</div>
+		</div> -->
+		<div class="bannerwrap">
+			<div class="banner-tit">
+				<p>我是女王，我做主！</p>
+				<p>我的品牌我代言！</p>
+			</div>
+			<banner :data="banner"></banner>
 		</div>
 		<div class="ranking w1180">
 			<div class="tit">
@@ -390,26 +389,34 @@
 	</div>
 </template>
 <script>
-	import $ from "jquery"
-	console.log($);
+	/*import $ from "jquery"
+	console.log($);*/
+	import Banner from "../components/banner"
 	export default{
+		components:{
+			Banner
+		},
 		data(){
 			return{
 				banner:[
 					{
-						imgUrl:require("../assets/banner01.jpg"),
+						name:"图片一",
+						src:require("../assets/banner01.jpg"),
 						
 					},
 					{
-						imgUrl:require("../assets/banner02.jpg"),
+						name:"图片一",
+						src:require("../assets/banner02.jpg"),
 						
 					},
 					{
-						imgUrl:require("../assets/banner03.jpg"),
+						name:"图片一",
+						src:require("../assets/banner03.jpg"),
 						
 					},
 					{
-						imgUrl:require("../assets/banner04.jpg"),
+						name:"图片一",
+						src:require("../assets/banner04.jpg"),
 						
 					},
 				],

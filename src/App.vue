@@ -2,15 +2,19 @@
 	*
 		margin 0
 		padding 0
-		line-height 1
+	body
 		font-family Microsoft Yahei
 		color rgb(51, 51, 51)
+		line-height 1	
 	a
 		text-decoration none
 		color inherit
 	ul
 	ol
 		list-style none
+	img
+		width 100%
+		height 100%	
 	em
 	i
 		font-style normal
@@ -41,4 +45,5 @@
 			MyFooter
 		}
 	};
+	
 </script>

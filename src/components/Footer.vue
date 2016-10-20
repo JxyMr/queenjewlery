@@ -1,6 +1,7 @@
 <style scoped lang="stylus">
 	.footer
 		margin-top 55px
+		clear both
 	a
 		font-size 12px
 	.bottom0
