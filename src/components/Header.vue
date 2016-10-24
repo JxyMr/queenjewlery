@@ -1,7 +1,8 @@
 <style lang="stylus">
 	.header
 		width 100%
-		overflow hidden
+		position relative
+		z-index 9999
 		.loginbar
 			height 30px
 			background rgb(242,242,242)
@@ -25,12 +26,16 @@
 				font-size 32px
 				font-weight 700
 				font-family Arial
+				position relative
 				span
 					font-size 14px
 					font-weight normal
 					position relative
 					vertical-align middle
-					margin-left 6px
+					display block
+					float right
+					top 10px
+					left 30px
 					&:after
 						content ""
 						border 6px solid transparent
@@ -38,6 +43,25 @@
 						position absolute
 						top 4px
 						left 32px
+					&:hover 
+						.city
+							display block	
+					.city
+						width 418px
+						height 108px
+						border 1px solid #bcbcbc
+						position absolute
+						z-index 20
+						background-color #fff
+						left 0
+						padding 10px 15px
+						display none
+						p
+							margin-top 10px
+							a
+								margin-left 10px
+							
+					
 			.searchbar
 				margin-top 36px
 				position relative
@@ -114,7 +138,12 @@
 			<div class="w1180">
 				<div class="logo fl">
 					LOGO
-					<span>广东</span>
+					<span>广东
+						<div class="city" >
+							<p v-for="item of citylist"><i>{{item.tab}}</i><a href="#" v-for="list of item.city">{{list}}</a></p>
+						</div>
+					</span>
+					
 				</div>
 				<div class="searchbar fl">
 					<input type="text" class="search" value="搜索您需要的关键词"/>
@@ -144,7 +173,7 @@
 					},
 					{
 						text:"注册",
-						href:"/desige"
+						href:"/register"
 					},
 					{
 						text:"品牌商",
@@ -168,6 +197,24 @@
 					{
 						text:"铂金对戒",
 						href:"#"
+					}
+				],
+				citylist:[
+					{
+						tab:"A-G",
+						city:["北京","安徽","重庆","福建","广东","广西","甘肃","贵州" ]
+					},
+					{
+						tab:"H-J",
+						city:["河北","河南","海南","湖北","湖南","黑龙江","吉林","江苏","江西"]
+					},
+					{
+						tab:"L-S",
+						city:["辽宁","内蒙古","宁夏","青海","上海","四川","山东","山西","陕西"]
+					},
+					{
+						tab:"T-Z",
+						city:["天津","新疆","西藏","云南","浙江"]
 					}
 				]
 			}

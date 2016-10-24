@@ -2,6 +2,9 @@
 	.nav
 		height 40px
 		background-color rgb(188,188,188)
+		position relative
+		z-index 10
+		clear both
 		.w1180
 			.all
 				float left
@@ -14,6 +17,28 @@
 				color #000
 				font-family Arial
 				font-size 14px
+				&:hover
+					.fixedbox
+						display block
+				.fixedbox
+					width 138px
+					border 1px solid #ccc
+					background-color #fff
+					padding 10px 20px 0
+					text-align left
+					line-height 20px
+					display none
+					overflow hidden
+					dt
+						font-weight 700
+						clear both
+						font-size 15px
+						margin-bottom 10px
+					dd
+						float left
+						margin-right 10px
+						margin-bottom 24px
+						font-size 13px
 				&:before
 					content ""
 					background url("../assets/icon1.png") no-repeat
@@ -47,7 +72,14 @@
 <template>
 	<div class="nav">
 		<div class="w1180">
-			<div class="all">全部商品</div>
+			<div class="all">全部商品
+				<div class="fixedbox">
+					<dl v-for="item of fixedbox">
+						<dt>{{item.tit}}</dt>
+						<a href="#"><dd v-for="list of item.menu">{{list}}</dd></a>
+					</dl>
+				</div>
+			</div>
 			<div class="list">
 				<router-link v-for="item of list" :to="item.href">{{item.name}}</router-link>
 			</div>			
@@ -84,6 +116,32 @@
 						href : "/activity"
 					}
 
+				],
+				fixedbox:[
+					{
+						tit : "钻石",
+						menu:["30分","50分","克拉钻"]
+					},
+					{
+						tit : "钻戒",
+						menu:["30分","50分","铂金"]
+					},
+					{
+						tit : "对戒",
+						menu:["铂金对戒","k金对戒"]
+					},
+					{
+						tit : "配饰",
+						menu:["吊坠","项链","套链"]
+					},
+					{
+						tit : "系列产品",
+						menu:["宠爱婚戒"]
+					},
+					{
+						tit : "热门产品",
+						menu:["50分裸钻","70分裸钻"]
+					}
 				]
 			}
 		}

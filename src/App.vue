@@ -14,7 +14,8 @@
 		list-style none
 	img
 		width 100%
-		height 100%	
+		height 100%
+		border none	
 	em
 	i
 		font-style normal

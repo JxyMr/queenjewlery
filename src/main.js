@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import NewArrival from "./pages/NewArrival"; 
 import Brand from "./pages/Brand";
 import Activity from "./pages/Activity";
-import Login from "./pages/login"
+import Login from "./pages/login";
+import Register from "./pages/register";
 import Represent from "./pages/Represent";  
 import App from "./App";
 Vue.use(Router);
@@ -41,7 +42,12 @@ new Vue({
 			{
 				path:"/login",
 				component : Login
+			},
+			{
+				path:"/register",
+				component : Register
 			}
+
 		]
 	}),
 	render : h => h(App)
