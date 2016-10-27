@@ -75,20 +75,20 @@
 							</select>
 							<input type="text" value="输入手机号码" />	
 						</p>
-						<p><label>验证码<input type="text" /></label><span>获取短信验证码</span></p>
-						<p><label>密码<input type="text" value="6-32个字符"></label></p> 
-						<p><label>确认密码<input type="text" value="请重复输入您的密码"></label></p>
-						<p><label><input type="radio">同意《女王珠宝账号服务条款，隐私政策》</label></p>
+						<p><label>验证码</label><input type="text" /><span>获取短信验证码</span></p>
+						<p><label>密码</label><input type="text" value="6-32个字符"></p> 
+						<p><label>确认密码</label><input type="text" value="请重复输入您的密码"></p>
+						<p><input type="radio"><label>同意《女王珠宝账号服务条款，隐私政策》</label></p>
 						<p><input type="button" value="注册" /></p>
 					</form>
 				</div>
 				<div class="byEmail way">
 					<form>
-						<p><label>邮箱<input type="text" value="请输入邮箱号码" /></label></p>
-						<p><label>密码<input type="text" value="6-32个字符" /></label></p>
-						<p><label>确认密码<input type="text" value="请重复输入您的号码"></label></p>
-						<p><label>验证码<input type="text" value="不区分大小写"><span>rt4j</span></label></p>
-						<p><label><input type="radio">同意《女王珠宝账号服务条款，隐私政策》</label></p>
+						<p><label>邮箱</label><input type="text" value="请输入邮箱号码" /></p>
+						<p><label>密码</label><input type="text" value="6-32个字符" /></p>
+						<p><label>确认密码</label><input type="text" value="请重复输入您的号码"></p>
+						<p><label>验证码</label><input type="text" value="不区分大小写"><span>rt4j</span></p>
+						<p><input type="radio"><label>同意《女王珠宝账号服务条款，隐私政策》</label></p>
 						<p><input type="button" value="注册" /></p>
 					</form>
 				</div>
